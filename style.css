@@ -8,10 +8,12 @@
 body {
   background-color: #fff8f0;
   color: #333;
+  line-height: 1.6;
 }
 
+/* ---------- Header ---------- */
 header {
-  background-color: #ff914d;
+  background: linear-gradient(90deg, #ff914d, #ffb37d);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -20,6 +22,8 @@ header {
 
 header h1 {
   color: white;
+  font-size: 28px;
+  letter-spacing: 1px;
 }
 
 nav a {
@@ -27,36 +31,70 @@ nav a {
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
+nav a:hover {
+  color: #333;
+}
+
+/* ---------- Hero Section ---------- */
 .hero {
-  background-color: #ffe1c4;
+  background: linear-gradient(180deg, #ffe1c4, #fff1e0);
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
+  border-bottom: 3px solid #ff914d;
 }
 
 .hero h2 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 10px;
+  color: #e65100;
 }
 
+.hero p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.hero button {
+  font-size: 16px;
+  padding: 10px 18px;
+  background: #e65100;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.hero button:hover {
+  background: #bf360c;
+  transform: scale(1.05);
+}
+
+/* ---------- Menu Section ---------- */
 .menu {
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
 }
 
 .menu h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #e65100;
 }
 
 .card {
   display: inline-block;
-  width: 200px;
-  margin: 10px;
+  width: 220px;
+  margin: 15px;
   padding: 15px;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .card img {
@@ -66,31 +104,22 @@ nav a {
 
 .card h3 {
   margin: 10px 0 5px;
+  font-size: 20px;
+  color: #444;
 }
 
 .card p {
   color: #e65100;
   font-weight: bold;
+  font-size: 18px;
 }
 
+/* ---------- Buttons ---------- */
 button {
   background-color: #ff914d;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-}
-
-button:hover {
-  background-color: #e65100;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #ff914d;
-  color: white;
-  margin-top: 30px;
-}
