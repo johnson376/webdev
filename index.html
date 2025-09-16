@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,33 +21,67 @@
   <section class="hero">
     <h2>Order Your Favorite Food!</h2>
     <p>Delicious meals delivered to your doorstep.</p>
+    <button id="specialOfferBtn">🎉 Show Special Offer</button>
   </section>
 
-  <section class="menu">
+  <section class="menu" id="menu">
     <h2>Popular Items</h2>
-    <div class="card">
-      <img src="image/CheeseBurbger.jpeg" alt="Burger">
-      <h3>Cheese Burger</h3>
-      <p>₹120</p>
-      <button>Order Now</button>
-    </div>
-    <div class="card">
-      <img src="image/food-pizza.jpg" alt="Pizza">
-      <h3>Veg Pizza</h3>
-      <p>₹250</p>
-      <button>Order Now</button>
-    </div>
-    <div class="card">
-      <img src="image/French-Fries.jpg" alt="Fries">
-      <h3>French Fries</h3>
-      <p>₹90</p>
-      <button>Order Now</button>
-    </div>
+    <!-- Cards will be injected dynamically by JavaScript -->
   </section>
 
   <footer>
     <p>&copy; 2025 Foodie. All rights reserved.</p>
   </footer>
-</body>
 
-</html>s
+  <!-- ✅ Internal JavaScript -->
+  <script>
+    // ✅ ES6: Array of food items
+    const foodItems = [
+      { name: "Cheese Burger", price: 120, img: "image/CheeseBurbger.jpeg" },
+      { name: "Veg Pizza", price: 250, img: "image/food-pizza.jpg" },
+      { name: "French Fries", price: 90, img: "image/French-Fries.jpg" },
+    ];
+
+    // ✅ ES6: Template Literals + forEach to dynamically add menu cards
+    const menuSection = document.getElementById("menu");
+
+    foodItems.forEach(({ name, price, img }) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <img src="${img}" alt="${name}">
+        <h3>${name}</h3>
+        <p>₹${price}</p>
+        <button class="orderBtn">Order Now</button>
+      `;
+      menuSection.appendChild(card);
+    });
+
+    // ✅ ES6: Arrow Functions + Event Delegation
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("orderBtn")) {
+        const foodName = e.target.previousElementSibling.previousElementSibling.textContent;
+        alert(`✅ Your ${foodName} has been added to cart!`);
+      }
+    });
+
+    // ✅ ES6: Spread operator & Random offers
+    const offers = [
+      "Get 20% OFF on first order!",
+      "Free Delivery on orders above ₹300!",
+      "Buy 1 Get 1 Free on Burgers!",
+    ];
+
+    document.getElementById("specialOfferBtn").addEventListener("click", () => {
+      const randomOffer = offers[Math.floor(Math.random() * offers.length)];
+      alert(`🎉 Special Offer: ${randomOffer}`);
+    });
+
+    // ✅ ES6: Destructuring + setTimeout
+    setTimeout(() => {
+      const [firstOffer] = offers;
+      console.log(`💡 Don't miss: ${firstOffer}`);
+    }, 2000);
+  </script>
+</body>
+</html>
